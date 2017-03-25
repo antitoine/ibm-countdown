@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IBM Presentation Countdown</title>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body style="padding-top: 50px;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 text-right" style="height: 30vh; vertical-align: middle;">
+                <img src="logo.png" height="100%">
+            </div>
+            <div class="col-md-6 text-left" style="height: 30vh; display:flex; align-items:center;">
+                <div>
+                    <h1>IBM Presentation</h1>
+                    <h2>Blockchain <small>06/04/2017</small></h2>
+                </div>
+            </div>
+            <div class="col-md-12 text-center" style="margin-top: 20px;">
+                <div class="panel panel-default" data-toggle="tooltip" data-placement="top" style="width: 100%; margin-left: auto; margin-right: auto;">
+                    <div class="panel-body">
+                        <div class="lead" id="clock" style="margin-bottom: 0; font-size: 8em;"></div>
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-primary" id="btn-pause">
+                    <i class="glyphicon glyphicon-pause"></i>
+                    Pause
+                </button>
+
+                <button type="button" class="btn btn-primary" id="btn-resume">
+                    <i class="glyphicon glyphicon-play"></i>
+                    Resume
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/jquery-countdown/dist/jquery.countdown.min.js"></script>
+    <script type="text/javascript">
+        $('[data-toggle="tooltip"]').tooltip();
+        var $clock = $('#clock');
+        $clock.countdown('2017/04/06', function(event) {
+            var time = event.strftime('%D days %H:%M:%S');
+            $(this).html(time);
+            document.title = 'IBM Presentation: ' + time;
+        });
+        $('#btn-pause').click(function() {
+            $clock.countdown('pause');
+        });
+        $('#btn-resume').click(function() {
+            $clock.countdown('resume');
+        });
+    </script>
+</body>
+</html>
