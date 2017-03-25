@@ -49,7 +49,7 @@
     <script type="text/javascript">
         $('[data-toggle="tooltip"]').tooltip();
         var $clock = $('#clock');
-        $clock.countdown('2017/04/06', function(event) {
+        $clock.countdown('2017/04/06 08:00:00', function(event) {
             var time = event.strftime('%D days %H:%M:%S');
             $(this).html(time);
             document.title = 'IBM Presentation: ' + time;
